@@ -1,0 +1,8 @@
+<div class="p-4">
+    <div class="container">
+        <h1>Hi {{user.firstName}}!</h1>
+        <p>You're logged in!!</p>
+        <button (click)="enterGame()">Play!</button>
+        <p *ngIf="message.length>0">{{message}}</p>
+    </div>
+</div>

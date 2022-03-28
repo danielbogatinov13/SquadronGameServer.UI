@@ -1,0 +1,24 @@
+<div *ngIf="loaded">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Expression</th>
+                <th scope="col">Your Answer</th>
+                <th scope="col">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let round of rounds">
+                <th scope="row">
+                    {{round.questionBody}}</th>
+                <td>
+                    <ng-container *ngIf="!round.isAnswered" [formGroup]="roundForm"><input (keyup.enter)="onEnter(round)" formControlName="answerBody" /></ng-container>
+                    <ng-container *ngIf="round.isAnswered" [formGroup]="roundForm">{{round.answerBody}}</ng-container>
+                </td>
+                <td>
+                    <ng-container *ngIf="round.isAnswered">{{round.answerMessage}}</ng-container>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
